@@ -1,0 +1,15 @@
+
+# Example system performance rooflines
+# Rooflines should be measured using STREAM and linpack
+
+system_name: Example
+flops_metrics:
+  avx512_fma_sp:
+    metric-name: Single-precision AVX512
+    value: 1000.0
+    unit: GFLOPS
+mem_metrics:
+  avx512_fma_sp:
+    metric-name: DRAM Bandwidth
+    value: 100.0
+    unit: GB/s
