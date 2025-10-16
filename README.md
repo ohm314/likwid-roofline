@@ -1,8 +1,8 @@
 # LIKWID roofline
 
-A very simple utility to draw roofline plots from LIKWID profiling data.
+A very simple utility to draw roofline plots from [LIKWID](https://github.com/RRZE-HPC/likwid) profiling data.
 
-We suggest following general workflow:
+I suggest following this workflow:
 
 1. Setup likwid, make sure it is able to collect FLOPS and memory operations
 2. Instrument your target workload with the LIKWID region marker API for all the kernels you think are
@@ -26,3 +26,25 @@ git clone https://github.com/ohm314/likwid-roofline && cd likwid-roofline
 uv sync
 uv run main.py roofline_metrics.yaml -f flops.csv -m mem.csv -w "my workload"
 ```
+
+## Caveats
+
+* While the code does read in double-precision peaks and regions, they are not properly handled in
+  the plotting function
+* Some of the limits in the plotting function are hard-coded for simplicity sake, if you find you're
+  missing some data points in the plot, you may want to check the x- and y-axis limits.
+* I assume the performance data was collected with the LIKWID metric groups from around version
+  5.4.1 and on an Intel architecture, the metric names might differ in other versions or hardware
+  platforms
+* This code is not thoroughly tested. It works for me and I hope it's useful to someone else out
+  there, but I can't guarantee it. I'm happy to take suggestions for improvement and fixes!
+
+## Thanks
+
+I'd like to shout out big thank you to the tireless work of the open source community and in particular 
+to the authors of LIKWID!
+
+## License
+
+Copyright (c) 2025 Omar Awile
+Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl/
