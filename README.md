@@ -1,5 +1,7 @@
 # LIKWID roofline
 
+![an example Roofline plot](https://github.com/ohm314/likwid-roofline/blob/21872c49c5f959e23e0d250e143d1048cde22b69/example_roofline.png)
+
 A very simple utility to draw roofline plots from [LIKWID](https://github.com/RRZE-HPC/likwid) profiling data.
 
 I suggest following this workflow:
