@@ -1,7 +1,11 @@
 [project]
 name = "likwid-roofline"
 version = "0.1.0"
-description = "Add your description here"
+authors = [
+  {name = "Omar Awile", email = "omar.awile@gmail.com"}
+]
+license = "UPL-1.0"
+description = "Roofline plotting utility that uses benchmark data from LIKWID"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
