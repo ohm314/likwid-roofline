@@ -134,7 +134,7 @@ def main():
     metrics = parse_metrics_yaml(args.metrics_yaml)
 
     # Parse input CSVs into DataFrames
-    roof_df = extract_kernel_performance(args.flps, args.mem)
+    roof_df = extract_kernel_performance(args.flops, args.mem)
 
     # Drop rows missing required fields for plotting
     required_cols = ["FLOP/Byte", "SP [GFLOP/s]", "Runtime [s]"]

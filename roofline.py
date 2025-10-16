@@ -113,6 +113,19 @@ def extract_mem_from_likwid_csv(filepath):
     return mem
 
 
+def extract_kernel_performance(flops_csv, mem_csv):
+    flops_df = extract_flops_from_likwid_csv(flops_csv)
+    mem_df = extract_mem_from_likwid_csv(mem_csv)
+
+    roof_df = flops_df.join(mem_df.set_index('region'), on='region')
+    # Filter out kernels that are not interesting or will cause problems
+    roof_df = roof_df[roof_df["SP FLOPs"] > 0]
+    roof_df = roof_df[roof_df["Bytes"] > 0]
+
+    roof_df['FLOP/Byte'] = roof_df['SP FLOPs']/roof_df['Bytes']
+    return roof_df
+
+
 def _bw_labels(ax, ai_vals, bw, label):
     xy_pix1 = ax.transData.transform((ai_vals[10], ai_vals[10] * bw))
     xy_pix2 = ax.transData.transform((ai_vals[11], ai_vals[11] * bw))
